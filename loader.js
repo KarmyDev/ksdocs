@@ -1,4 +1,4 @@
-fetch(window.location.origin + "/docs.txt")
+fetch("/docs.txt")
 	.then(res => res.text())
 	.then((data) => {
 		

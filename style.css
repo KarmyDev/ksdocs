@@ -1,0 +1,109 @@
+body {
+	background-color: rgb(141, 145, 168);
+}
+
+.floating {
+	position: fixed;
+	bottom: 0px;
+	background-color: #aeaca5;
+	padding: 5px;
+	z-index: 300;
+	width: 100%;
+	left: 0px;
+}
+
+.fill-gap {
+	height: 300px;
+}
+
+#commands {
+	max-height: 96px;
+	overflow: scroll;
+}
+
+.commands_list {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: left;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.commands_list > a {
+	color: blue;
+	border: 1px solid rgb(0, 0, 0);
+	padding: 5px;
+	margin: 2px;
+}
+
+.cmd_top_div {
+	display: inline-flex;
+	justify-content: left;
+	align-items: flex-start;
+}
+
+.cmd_div {
+	margin-top: 20px;
+	margin-bottom: 45px;
+	padding: 5px;
+	
+	background-color: rgb(159, 164, 196);
+}
+
+.command_name {
+	color: rgb(163, 0, 0);
+	font-weight: bold;
+	border: 1px solid black;
+	padding: 2px;
+	padding-left: 4px;
+	padding-right: 4px;
+}
+
+.cmd_desc {
+	color: rgb(8, 48, 107);
+	font-weight: bold;
+	border-left: 2px dotted black;
+	margin-left: 12px;
+	padding-left: 8px;
+}
+
+.cmd_legend {
+	color: black;
+	font-weight: bold;
+	/* background uses: l_example OR l_additional*/
+	padding: 2px;
+	padding-left: 4px;
+	padding-right: 4px;
+}
+
+.l_example {
+	background-color: rgb(104, 116, 179);
+	border: 1.5px solid rgb(21, 26, 55);
+}
+
+.l_additional {
+	background-color: rgb(231, 207, 97);
+	border: 1.5px solid #ddb129;
+}
+
+.cmd_bg {
+	margin-top: 20px;
+	padding-top: 10px;
+	background-color: rgb(71, 74, 90);
+	border: 2px solid rgb(21, 26, 55);
+}
+
+.cmd_info {
+	margin-top: 8px;
+	padding-top: 10px;
+	background-color: rgb(212, 187, 78);
+	border: 2px solid #ddb129;
+}
+
+.cmd_info_text {
+	color: rgb(0, 0, 0);
+}
+
+.cmd_example {
+	color: rgb(89, 223, 77);
+}

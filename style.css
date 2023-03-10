@@ -105,5 +105,30 @@ body {
 }
 
 .cmd_example {
+	color: rgb(224, 223, 223);
+	/*color: rgb(89, 223, 77); OLDER */
+}
+
+.sh_type {
+	/*
+	color: rgb(242, 102, 130);
+	*/
+	color: rgb(242, 164, 166);
+}
+
+.sh_keyword {
+	color: rgb(110, 203, 248)
+	/*
+	color: rgb(189, 106, 252);
+	color: rgb(156, 119, 242);
+	*/
+}
+
+.sh_string {
 	color: rgb(89, 223, 77);
+}
+
+.sh_number {
+	color: rgb(255, 191, 0);
+	
 }

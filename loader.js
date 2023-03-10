@@ -1,4 +1,11 @@
-fetch("./docs.txt")
+keywords = [];
+types = [];
+
+fetch("./data/keywords.txt").then(res => res.text()).then((data) => { keywords = JSON.parse(data); });
+
+fetch("./data/types.txt").then(res => res.text()).then((data) => { types = JSON.parse(data); });
+
+fetch("./data/docs.txt")
 	.then(res => res.text())
 	.then((data) => {
 		
@@ -14,8 +21,8 @@ fetch("./docs.txt")
 		parsed.forEach(arr => {
 			
 			var additional = "";
-			var desc = arr[1].replaceAll("\n", "<br>");
-			var example = arr[2].replaceAll("\n", "<br>");
+			var desc = arr[1].toString().replaceAll("\n", "<br>");
+			var example = arr[2];
 			
 			if (arr[3] != "")
 			{
@@ -24,7 +31,7 @@ fetch("./docs.txt")
 			
 			html += `<div id="_${arr[0]}_${link_helper}" class="cmd_div"><div class="cmd_top_div"><span class="command_name">${arr[0]}</span>`
 				+ `<div class="cmd_desc">${desc}</div></div>`
-				+ `<fieldset class="cmd_bg"><legend class="cmd_legend l_example">Example:</legend><span class="cmd_example">${example}</span></fieldset>`
+				+ `<fieldset class="cmd_bg"><legend class="cmd_legend l_example">Example:</legend><span class="cmd_example">${syntaxHighlight(example).replaceAll("\n", "<br>")}</span></fieldset>`
 				+ additional
 				+ `</div>`;
 				
@@ -36,6 +43,89 @@ fetch("./docs.txt")
 		
 		document.getElementById("docs").innerHTML = html;
 	})
+
+function containsOnlyNumbers(str) {
+  return /^\d+$/.test(str);
+}
+function syntaxHighlight(source)
+{
+	// keywords, types
+	
+	// - Token builder
+	var tokens = [];
+	var str = "";
+	var prev = "";
+	var inString = false;
+	for (var i = 0; i < source.length; i++)
+	{
+		var c = source[i];
+		
+		if (c == "'") 
+		{
+			tokens.push(str);
+			str = "";
+			
+			inString = !inString;
+		}
+		
+		if (inString) str += c;
+		else
+		{
+			if (c == " ")
+			{
+				tokens.push(str);
+				str = "";
+			}
+			else if (c == "\n")
+			{
+				tokens.push(str);
+				tokens.push("\n");
+				str = "";
+			}
+			else if (c != "'") str += c;
+		}
+		
+		if (i == source.length - 1)
+		{
+			tokens.push(str);
+			str = "";
+		}
+	}
+	
+	// now color them!
+	str = "";
+	
+	tokens.forEach(token => {
+		
+		var includesKeywords = keywords.includes(token);
+		var includesTypes = types.includes(token);
+		var includesNumber = containsOnlyNumbers(token);
+		
+		if (!token.startsWith("'"))
+		{
+		
+			if (includesKeywords) str += '<span class="sh_keyword">';
+			if (includesTypes) str += '<span class="sh_type">';
+			if (includesNumber) str += '<span class="sh_number">'
+		
+			str += token;
+		
+			if (includesKeywords || includesTypes || includesNumber) str += "</span>";
+		
+		}
+		else // if its string
+		{
+			str += '<span class="sh_string">';
+			str += token;
+			str += "'</span>";
+		}
+		
+		str += " ";
+		
+	});
+	
+	return str;
+}
 
 function parseArgsLength(source, needle)
 {

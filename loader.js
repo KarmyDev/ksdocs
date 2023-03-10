@@ -100,7 +100,7 @@ function syntaxHighlight(source)
 		var includesKeywords = keywords.includes(token);
 		var includesTypes = types.includes(token);
 		var includesNumber = containsOnlyNumbers(token);
-		var includesBooleans = (token == "true" || token = "false");
+		var includesBooleans = ["true", "false"].includes(token);
 		
 		if (!token.startsWith("'"))
 		{

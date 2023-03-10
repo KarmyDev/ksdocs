@@ -1,0 +1,66 @@
+!4! 
+# ^ number of arguments
+
+# COMMAND | DESCRIPTION | EXAMPLE USE | ADDITIONAL INFO
+"new" "creates new variable.
+avaliable types: int, string, bool" "new x int
+new str string
+new b bool" ""
+
+"set" "assigns a value to variable." "set x 5
+set str 'hello world!'
+set b true" "set instruction doesn't accepts other variables, for that use the cpy instruction."
+
+"cpy" "assigns second variable's value to first variable." "cpy x y" ""
+
+"cst" "casts second variable string to fist variable int." "cst x str" ""
+
+"out" "prints variable onto the console without newline." "out b" ""
+
+"out!" "prints variable onto the console with newline" "out! str" ""
+
+"clr" "clears the console." "clr" ""
+
+"add" "adds value from second to first variable" "add x y" "for string values use put instruction"
+
+"sub" "subtracts from first variable by second one." "sub x y" ""
+
+"mul" "multiplies first variable by second one." "mul x y" ""
+
+"div" "divides first variable by second one." "div x y" ""
+
+"mod" "assigns remainder of division first variable by second one, to first one." "mod x y" ""
+
+"flp" "flips variable to its negative representation,
+with strings, it reverses them." "flp str" ""
+
+"len" "assigns length of second variable to first one." "len x str" ""
+
+"tof" "assigns type of variable to first one." "tof str x" ""
+
+"put" "merges two variables to first one." "put str x" "to assign int to string use cpy"
+
+"cut" "slices first string by second variable being the start of slice,
+and third being the end of slice." "cut str index_start index_end" ""
+
+"get" "gets system variables, such as time or random and puts them in first variable." "get rnd sys_env Random" ""
+
+"psh" "pushes first variable to a stack.
+useful for stack machine." "psh x" ""
+
+"pop" "pops last variable from stack to first variable." "pop x" ""
+
+"siz" "skips next instruction if first variable is zero." "siz x" ""
+
+"siz!" "skips next instruction if first variable is not zero." "siz! x" ""
+
+"sin" "skips next instruction if first variable is negative." "sin x" ""
+
+"sin!" "skips next instruction if first variable is not negative." "sin! x" ""
+
+"jmp" "jumps code execution to label specified as first argument." "jmp label" "recommended to use for infinity or \"for\" loops."
+
+"end" "does nothing unless the label was jumped to via jmp!, then it returns code execution where jmp! instruction was called." "end" "recommended to use after label."
+
+"end!" "ends the whole execution of program." "end!" ""
+

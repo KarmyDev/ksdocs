@@ -1,0 +1,1 @@
+["new", "set", "cpy", "cst", "out", "out!", "clr", "add", "sub", "mul", "div", "mod", "flp", "len", "tof", "put", "cut", "get", "psh", "pop", "siz", "siz!", "sin", "sin!", "jmp", "end", "end!"]

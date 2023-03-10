@@ -91,6 +91,8 @@ body {
 	padding-top: 10px;
 	background-color: rgb(71, 74, 90);
 	border: 2px solid rgb(21, 26, 55);
+
+	font-family: monospace;
 }
 
 .cmd_info {

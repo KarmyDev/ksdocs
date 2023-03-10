@@ -129,6 +129,9 @@ body {
 }
 
 .sh_number {
-	color: rgb(255, 191, 0);
-	
+	color: rgb(255, 191, 0);	
+}
+
+.sh_boolean {
+	color: rgb(253, 165, 65);
 }

@@ -100,7 +100,7 @@ function syntaxHighlight(source)
 		var includesKeywords = keywords.includes(token);
 		var includesTypes = types.includes(token);
 		var includesNumber = containsOnlyNumbers(token);
-		var includeBooleans = token == "true" || token = "false";
+		var includesBooleans = (token == "true" || token = "false");
 		
 		if (!token.startsWith("'"))
 		{
@@ -108,11 +108,11 @@ function syntaxHighlight(source)
 			if (includesKeywords) str += '<span class="sh_keyword">';
 			if (includesTypes) str += '<span class="sh_type">';
 			if (includesNumber) str += '<span class="sh_number">';
-			if (includeBooleans) str += '<span ass="sh_boolean">';
+			if (includesBooleans) str += '<span class="sh_boolean">';
 		
 			str += token;
 		
-			if (includesKeywords || includesTypes || includesNumber || includeBooleans) str += "</span>";
+			if (includesKeywords || includesTypes || includesNumber || includesBooleans) str += "</span>";
 		
 		}
 		else // if its string
